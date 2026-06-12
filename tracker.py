@@ -1,4 +1,5 @@
 import requests
+from logger import log_sighting
 
 def fetch_position():
     url = "http://api.open-notify.org/iss-now.json"
@@ -13,6 +14,8 @@ def fetch_position():
     print(f"Latitude: {latitude}")
     print(f"Longitude: {longitude}")
     print(f"Timestamp: {timestamp}")
+
+    log_sighting(latitude, longitude, timestamp)
 
 if __name__ == "__main__":
     fetch_position()
